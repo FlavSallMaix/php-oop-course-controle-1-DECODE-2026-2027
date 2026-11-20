@@ -11,4 +11,8 @@ $router = new Router();
 $response = $router->main($request);
 
 echo '<pre>' . $response->content . '</pre>';
+
+// Exercice 3 : Invoke-RestMethod -Uri "http://127.0.0.1:8181/contact" -Method Post -ContentType "application/json" -Body '{...}')
+// Exercice 4 : (Invoke-RestMethod -Uri "http://127.0.0.1:8181/contact/<filename>" -Method Patch -ContentType "application/json" -Body '{...}').pre
+
 ?>
