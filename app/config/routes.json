@@ -13,5 +13,10 @@
     "uri": "/contact",
     "method": "GET",
     "controller": "AllContactsController"
+  },
+  {
+    "uri": "/contact/<filename>",
+    "method": "GET",
+    "controller": "SingleContactController"
   }
 ]

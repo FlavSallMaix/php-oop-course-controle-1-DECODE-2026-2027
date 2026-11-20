@@ -11,5 +11,4 @@ $router = new Router();
 $response = $router->main($request);
 
 echo '<pre>' . $response->content . '</pre>';
-
 ?>
