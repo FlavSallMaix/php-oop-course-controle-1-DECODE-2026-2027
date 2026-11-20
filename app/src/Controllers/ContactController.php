@@ -10,7 +10,11 @@ class ContactController extends AbstractController {
         $response = new Response();
         $timestamp = time();
 
-        if (!$this->validateContentType($request)) {
+        $headers = $request->getHeaders();
+
+        $dir = self::CONTACTS_DIR;
+
+        if ($headers['Content-Type'] !== 'application/json') {
             $response->statusCode = 400;
             $response->content = json_encode(['error' => 'Content-Type must be application/json']);
 
@@ -42,8 +46,6 @@ class ContactController extends AbstractController {
                 return $response;
             }
 
-            $dir = __DIR__ . '../../var/contacts/';
-
             if (!is_dir($dir)) {
                 mkdir($dir, 755, true);
             }
@@ -51,7 +53,7 @@ class ContactController extends AbstractController {
             $fileName = $timestamp.'_'.$email.'.json';
             $fileContent = json_encode(['email' => $email, 'subject' => $subject, 'message' => $message, 'dateOfCreation' => $timestamp, 'dateOfLastUpdate' => $timestamp]);
 
-            file_put_contents($fileName, $fileContent);
+            file_put_contents($dir . $fileName, $fileContent);
 
             $response->statusCode = 201;
             $response->content = json_encode(['file' => $fileName]);
