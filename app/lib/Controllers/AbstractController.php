@@ -6,10 +6,7 @@ use App\Http\Response;
 use App\Http\Request;
 
 abstract class AbstractController {
-    protected function validateContentType(Request $request): bool {
-        $headers = $request->getHeaders();
-        return isset($headers['Content-Type']) && $headers['Content-Type'] === 'application/json';
-    }
+    protected const CONTACTS_DIR = __DIR__ . '/../../var/contacts/';
 
     public abstract function process(Request $request): Response;
 }

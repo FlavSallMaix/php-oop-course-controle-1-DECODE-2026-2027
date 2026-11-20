@@ -10,5 +10,6 @@ $request = new Request();
 $router = new Router();
 $response = $router->main($request);
 
-echo $response->content;
+echo '<pre>' . $response->content . '</pre>';
+
 ?>
