@@ -10,9 +10,5 @@ $request = new Request();
 $router = new Router();
 $response = $router->main($request);
 
-http_response_code($response->statusCode);
-
-header('Content-Type: application/json');
-echo json_encode($response->content);
-
+echo $response->content;
 ?>
