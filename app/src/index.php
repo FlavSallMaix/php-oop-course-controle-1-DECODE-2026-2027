@@ -8,10 +8,11 @@ use App\Http\Request;
 $request = new Request();
 
 $router = new Router();
-$router->main($request);
-
 $response = $router->main($request);
 
-echo $response->content;
+http_response_code($response->statusCode);
+
+header('Content-Type: application/json');
+echo json_encode($response->content);
 
 ?>
