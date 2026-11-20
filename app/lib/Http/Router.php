@@ -70,6 +70,13 @@ class Router {
     }
 
     private function checkUri(Request $request, string $uri): bool {
+        if ($uri === '/contact/<filename>') {
+
+            $fileName = basename($request->getUri());
+
+            return $request->getUri() === "/contact/" . $fileName;
+        }
+
         return $request->getUri() === $uri;
     }
     
