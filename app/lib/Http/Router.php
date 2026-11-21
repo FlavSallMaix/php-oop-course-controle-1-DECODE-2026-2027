@@ -41,13 +41,13 @@ class Router {
 
         if($uriFoundFlag === true && $methodFoundFlag === false) {
             $response->statusCode = 405;
-            $response->content = "invalid method";
+            $response->content = json_encode(['message' => 'Invalid method']);
 
             return $response;
         }
 
         $response->statusCode = 404;
-        $response->content = "route note found";
+        $response->content = json_encode(['message' => 'Route note found']);
 
         return $response;
     }

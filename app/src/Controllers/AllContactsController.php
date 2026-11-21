@@ -25,7 +25,7 @@ class AllContactsController extends AbstractController {
         $response = new Response();
 
         $response->statusCode = 200;
-        $response->content = json_encode($allContacts, JSON_PRETTY_PRINT);
+        $response->content = json_encode($allContacts);
 
         return $response;
     }

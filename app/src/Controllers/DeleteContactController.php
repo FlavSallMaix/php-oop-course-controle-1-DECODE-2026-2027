@@ -33,6 +33,7 @@ class DeleteContactController extends AbstractController {
                         unlink($filePath);
                     
                         $response->statusCode = 204;
+                        $response->content = '';
 
                         return $response;
                     }

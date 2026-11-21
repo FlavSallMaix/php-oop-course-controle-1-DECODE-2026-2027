@@ -21,7 +21,7 @@ class SingleContactController extends AbstractController {
 
                     $response = new Response();
                     $response->statusCode = 200;
-                    $response->content = json_encode($fileContent, JSON_PRETTY_PRINT);
+                    $response->content = json_encode($fileContent);
 
                     return $response;
                 }
